@@ -3,31 +3,26 @@ package es.fpsumma.dam2.videoclub.persistence.jpa.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "director")
-public class DirectorEntity {
-
+@Table(name="cliente")
+public class ClienteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre", nullable = false, length = 100)
+    @Column(name="nombre", nullable = false,length = 100)
     private String nombre;
 
-    // Añadir relación con Lista de películas
+    @Column(name="email", nullable = false, length = 150)
+    private String email;
 
+    public ClienteEntity() {
+    }
 
-
-    // ===== Constructores =====
-    public DirectorEntity(Long id, String nombre) {
+    public ClienteEntity(Long id, String nombre, String email) {
         this.id = id;
         this.nombre = nombre;
+        this.email = email;
     }
-
-    public DirectorEntity() {
-    }
-
-
-    // ===== Getters y setters =====
 
     public Long getId() {
         return id;
@@ -45,4 +40,11 @@ public class DirectorEntity {
         this.nombre = nombre;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

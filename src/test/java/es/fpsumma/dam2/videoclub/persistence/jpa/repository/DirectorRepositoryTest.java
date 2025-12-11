@@ -45,4 +45,9 @@ class DirectorRepositoryTest {
         Optional<DirectorEntity> resultado = directorRepository.findByNombre("Director Inventado");
         assertThat(resultado).isEmpty();
     }
+    @Test
+    void ordenarDeFormaAcendente(){
+        List<DirectorEntity> resultado= directorRepository.findAllByOrderByNombreAsc();
+        
+    }
 }
